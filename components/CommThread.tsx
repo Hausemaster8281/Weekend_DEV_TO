@@ -73,7 +73,7 @@ export default function CommThread() {
                         onChange={(e) => setInput(e.target.value)}
                         onKeyDown={(e) => e.key === "Enter" && sendMessage()}
                         placeholder="Transmit message..."
-                        className="w-full bg-white border border-[#79747E] rounded-full px-5 py-3 pr-12 text-sm font-medium text-[#1C1B1F] placeholder-[#49454F]/60 focus:border-[#6750A4] focus:ring-1 focus:ring-[#6750A4] outline-none shadow-inner"
+                        className="w-full bg-white border-2 border-[#6750A4]/30 rounded-full px-5 py-3 pr-12 text-sm font-bold text-[#1C1B1F] placeholder-[#49454F]/50 focus:border-[#6750A4] focus:ring-2 focus:ring-[#6750A4]/20 outline-none shadow-md"
                     />
                     <button
                         onClick={() => sendMessage()}

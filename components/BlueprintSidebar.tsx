@@ -118,35 +118,36 @@ export default function BlueprintSidebar() {
             </div>
 
             <div className="flex-1 overflow-y-auto p-6 space-y-6 scrollbar-thin">
-                <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2 text-[#49454F]">
-                        <Settings size={18} />
-                        <h3 className="font-black text-[10px] tracking-[0.1em] uppercase opacity-70">Process Params</h3>
+                <div className="flex items-center justify-between border-b-2 border-[#6750A4]/20 pb-2">
+                    <div className="flex items-center gap-2 text-[#1C1B1F]">
+                        <Settings size={18} className="text-[#6750A4]" />
+                        <h3 className="font-black text-xs tracking-widest uppercase">Process Params</h3>
                     </div>
                     <button
                         onClick={() => setIsAddingParam(true)}
-                        className="p-1 text-[#6750A4] hover:bg-[#6750A4] hover:text-white rounded-lg transition-all active:scale-95"
+                        className="p-1.5 bg-[#6750A4] text-white rounded-lg transition-all active:scale-95 shadow-md hover:bg-[#4F378B]"
+                        title="Add New Parameter"
                     >
-                        <Plus size={20} />
+                        <Plus size={18} />
                     </button>
                 </div>
 
                 {isAddingParam && (
-                    <div className="bg-white p-4 rounded-2xl border-2 border-dashed border-[#6750A4] space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
+                    <div className="bg-white p-4 rounded-2xl border-2 border-[#6750A4] space-y-3 animate-in fade-in slide-in-from-top-2 duration-200 shadow-xl">
                         <div className="relative">
                             <input
                                 autoFocus
                                 value={newParamKey}
                                 onChange={(e) => setNewParamKey(e.target.value)}
                                 placeholder="Param Name"
-                                className="w-full text-sm font-bold border-b border-[#79747E] pb-1 focus:border-[#6750A4] outline-none"
+                                className="w-full text-sm font-bold border-b-2 border-[#6750A4]/20 pb-1 focus:border-[#6750A4] outline-none text-[#1C1B1F]"
                             />
                             <span className="text-[9px] text-[#6750A4] font-bold uppercase mt-1 block">New Parameter Key</span>
                         </div>
                         <div className="flex gap-2">
                             <button
                                 onClick={() => addParam(newParamKey, false)}
-                                className="flex-1 bg-[#6750A4] text-white py-2 rounded-xl text-[10px] font-bold uppercase tracking-wider hover:brightness-110 active:scale-95 transition-all"
+                                className="flex-1 bg-[#6750A4] text-white py-2 rounded-xl text-[10px] font-bold uppercase tracking-wider hover:brightness-110 active:scale-95 transition-all shadow-sm"
                             >
                                 Text
                             </button>
@@ -158,7 +159,7 @@ export default function BlueprintSidebar() {
                             </button>
                             <button
                                 onClick={() => setIsAddingParam(false)}
-                                className="p-2 text-[#79747E] hover:text-red-600 transition-colors"
+                                className="p-2 text-[#49454F] hover:text-red-600 transition-colors"
                             >
                                 <X size={20} />
                             </button>
@@ -168,16 +169,17 @@ export default function BlueprintSidebar() {
 
                 <div className="space-y-4 pb-20">
                     {Object.entries(livingSpec.parameters).map(([key, value]) => (
-                        <div key={key} className="bg-white p-4 rounded-2xl border border-[#CAC4D0] focus-within:border-[#6750A4] focus-within:ring-1 focus-within:ring-[#6750A4] transition-all shadow-sm group hover:shadow-md relative overflow-hidden">
+                        <div key={key} className="bg-white p-4 rounded-2xl border-2 border-[#E6E0E9] focus-within:border-[#6750A4] transition-all shadow-sm group hover:shadow-md relative overflow-hidden">
                             <div className="flex items-center justify-between mb-3 border-b border-[#F1F1F1] pb-2">
                                 <input
-                                    className="text-[10px] font-black text-[#6750A4] uppercase tracking-wider bg-transparent border-none outline-none focus:text-[#6750A4] w-full mr-4"
+                                    className="text-[11px] font-black text-[#6750A4] uppercase tracking-wider bg-transparent border-none outline-none focus:text-[#4F378B] w-full mr-4"
                                     value={key}
                                     onChange={(e) => renameParam(key, e.target.value)}
                                 />
                                 <button
                                     onClick={() => removeParam(key)}
-                                    className="opacity-0 group-hover:opacity-40 hover:!opacity-100 p-1 text-red-600 hover:bg-red-50 rounded-lg transition-all flex-shrink-0"
+                                    className="p-1.5 text-red-600 hover:bg-red-50 rounded-lg transition-all flex-shrink-0"
+                                    title="Remove Parameter"
                                 >
                                     <Trash2 size={14} />
                                 </button>
@@ -187,7 +189,7 @@ export default function BlueprintSidebar() {
                                 <div className="space-y-3">
                                     <div className="flex flex-wrap gap-2">
                                         {value.map((item: string, index: number) => (
-                                            <div key={`${key}-${index}`} className="flex items-center gap-1 bg-[#EADDFF] text-[#21005D] px-2 py-1.5 rounded-xl text-[11px] font-bold group/item shadow-sm">
+                                            <div key={`${key}-${index}`} className="flex items-center gap-1 bg-[#EADDFF] text-[#21005D] px-2 py-1.5 rounded-xl text-[11px] font-bold group/item shadow-sm border border-[#D0BCFF]">
                                                 <input
                                                     value={item}
                                                     onChange={(e) => {
@@ -195,11 +197,11 @@ export default function BlueprintSidebar() {
                                                         newArr[index] = e.target.value;
                                                         updateParam(key, newArr);
                                                     }}
-                                                    className="bg-transparent border-none outline-none w-auto min-w-[40px] appearance-none"
+                                                    className="bg-transparent border-none outline-none w-auto min-w-[40px] appearance-none text-[#21005D]"
                                                 />
                                                 <button
                                                     onClick={() => removeListItem(key, index)}
-                                                    className="hover:text-red-600 opacity-30 group-hover/item:opacity-100 transition-opacity ml-1"
+                                                    className="text-red-600/50 hover:text-red-600 transition-opacity ml-1"
                                                 >
                                                     <X size={12} />
                                                 </button>
@@ -208,7 +210,7 @@ export default function BlueprintSidebar() {
                                     </div>
                                     <button
                                         onClick={() => pushListItem(key, "new item")}
-                                        className="w-full border-2 border-[#6750A4] border-dashed text-[#6750A4] text-[10px] py-1.5 rounded-xl font-black hover:bg-[#6750A4] hover:text-white transition-all active:scale-95 shadow-sm uppercase tracking-tighter"
+                                        className="w-full border-2 border-[#6750A4] border-dashed text-[#6750A4] text-[10px] py-1.5 rounded-xl font-black hover:bg-[#6750A4] hover:text-white transition-all active:scale-95 shadow-sm uppercase tracking-wider"
                                     >
                                         + ADD ITEM
                                     </button>
@@ -217,7 +219,7 @@ export default function BlueprintSidebar() {
                                 <textarea
                                     value={String(value)}
                                     onChange={(e) => updateParam(key, e.target.value)}
-                                    className="w-full bg-transparent border-none p-0 text-sm font-bold text-[#1C1B1F] focus:outline-none resize-none min-h-[40px] placeholder-[#49454F]/30"
+                                    className="w-full bg-[#F7F2FA] rounded-xl p-3 text-sm font-bold text-[#1C1B1F] focus:outline-none focus:ring-2 focus:ring-[#6750A4]/20 resize-none min-h-[60px] placeholder-[#49454F]/50 shadow-inner border border-[#E6E0E9]"
                                     placeholder="Enter details..."
                                 />
                             )}
@@ -226,9 +228,9 @@ export default function BlueprintSidebar() {
                 </div>
             </div>
 
-            <div className="p-4 bg-[#E6E0E9]/30 italic text-[9px] text-[#49454F] flex items-center gap-2 border-t border-[#E6E0E9] mt-auto">
-                <Info size={14} className="opacity-50" />
-                <span>Custom parameters directly influence the Forge Outcome intelligence. All changes sync via CRDTs.</span>
+            <div className="p-4 bg-[#6750A4] text-white italic text-[10px] flex items-center gap-2 border-t border-[#E6E0E9] mt-auto shadow-2xl">
+                <Info size={14} className="flex-shrink-0" />
+                <span className="font-medium">Spec parameters steer the Forge AI's core intelligence. Everything syncs in real-time.</span>
             </div>
         </aside>
     );

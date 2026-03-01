@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# THE FORGE 🛠️
 
-## Getting Started
+**THE FORGE** is a high-density, real-time collaborative workspace designed for AI-assisted engineering and creative brainstorming. It leverages CRDTs for sub-millisecond synchronization and integrates deep AI context to turn "Blueprints" into synchronized "Forge Outcomes."
 
-First, run the development server:
+## 🚀 Key Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Real-Time Synergy**: Powered by **Liveblocks**, allowing multiple "Architects" to collaborate on the same mission simultaneously with zero-conflict sync.
+- **Living Spec (The Blueprint)**: A dynamic, 100% customizable sidebar where users can define, rename, and add binary or list-based parameters to steer AI output.
+- **AI Forge Engine**: Integrated with **Google Gemini (3.0 Flash)** to generate high-fidelity technical plans, prompts, and architectural specs.
+- **Context-Aware Communication**: The built-in "Comm Thread" passes real-time chat history to the Forge AI, ensuring it understands the ongoing conversation.
+- **Mission Templates**: Pre-configured modes for "Antigravity Prompts," "Image Gen," and "Dev Plans."
+- **Auto-Expiry**: Rooms automatically reset after 30 minutes of inactivity to ensure a clean slate for new projects.
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Runtime**: Turbopack
+- **Real-Time/CRDT**: Liveblocks
+- **AI Engine**: Google Generative AI (Gemini API)
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+
+## ⚙️ Setup Guide
+
+### 1. Prerequisites
+Ensure you have Node.js and npm installed.
+
+### 2. Environment Configuration
+Create a `.env.local` file in the root directory. This file is required for the application to function.
+
+```env
+# Liveblocks Configuration (Get from liveblocks.io)
+NEXT_PUBLIC_LIVEBLOCKS_PUBLIC_KEY=your_liveblocks_pk_here
+
+# Google AI Configuration (Get from Google AI Studio)
+GOOGLE_GENERATIVE_AI_API_KEY=your_gemini_api_key_here
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> [!NOTE]
+> The `NEXT_PUBLIC_` prefix is essential for Liveblocks as it needs to be accessible in the client-side browser environment.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Installation & Run
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🗺️ Roadmap (To-Dos)
 
-## Learn More
+### [ ] Design & Experience
+- **V2 High-Resistance UI**: Implement "Skeuomorphic IHS" aesthetics with heavy Tailwind backdrop-filters and 3D transforms.
+- **Mobile Optimization**: Refactor the sidebars for a responsive "Sheet" layout on smaller screens.
 
-To learn more about Next.js, take a look at the following resources:
+### [ ] Core Infrastructure
+- **Landing Page**: Build a premium terminal-style landing page to board new Architects.
+- **OAuth Integration**: Support Google and GitHub authentication for persisted architect profiles.
+- **History Retention**: Optional persistent database storage for archived Forge Outcomes.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### [ ] Workspace Polish
+- **Advanced Parameter Types**: Add support for boolean toggles and color pickers in the Blueprint sidebar.
+- **Export Engine**: Export Forge Outcomes directly to PDF or Markdown files.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*Built by the Forge AI & its Architects.*
